@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Serenity Script" target="1.5" />
+      <module name="Serenity Script" target="7" />
     </bytecodeTargetLevel>
   </component>
 </project>
