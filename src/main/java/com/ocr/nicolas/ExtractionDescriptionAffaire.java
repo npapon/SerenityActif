@@ -20,15 +20,19 @@ public ExtractionDescriptionAffaire(Affaire affaire)
    };
 
 
- public void ecrireFichier(String texte) {
+ public void ecrireFichier() {
 
-     texte = "Numéro Affaire" + this.affaire.getNumeroAffaire()+"%n"
-             +"Statut" + this.affaire.isStatutAffaire()+ "%n"
-             +"Titre Legal Affaire" +this.affaire.getTitreLegalAffaire()+"%n"
-             +"Titre Traduit Affaire" +this.affaire.getTitreTraduitAffaire()+"%n"
-             +"Identifiants Externes" + this.affaire.afficherIdentifiantExterneAffaire() +"%n"+
+    String texte = "Numero Affaire : " + this.affaire.getNumeroAffaire()+"%n"
+             +"Statut : " + this.affaire.isStatutAffaire()+ "%n"
+             +"Titre Legal Affaire : " +this.affaire.getTitreLegalAffaire()+"%n"
+             +"Titre Traduit Affaire : " +this.affaire.getTitreTraduitAffaire()+"%n"
+             +"Identifiants Externes : " +"%n"+ this.affaire.retournerIdentifiantExterneAffaire()
+             +"Caracteristiques Affaire : "  +"%n"+ this.affaire.retournerCaracteristiquesAffaire()+"%n"
+             +"Programmes : "+"%n"+ this.affaire.retournerListProgrammesAffaire();
+
      ;
 
+     System.out.println(String.format(texte));
      try {
          Files.write(fichier, String.format(texte).getBytes());
      } catch (IOException e) {

@@ -67,11 +67,10 @@ public class Affaire {
     }
 
 
-    public String afficherIdentifiantExterneAffaire() {
-        String result=null;
+    public String retournerIdentifiantExterneAffaire() {
+        String result = "";
         for (Map.Entry<String, Integer> entry : this.identifiantsExternesAffaire.entrySet()) {
-            System.out.println(entry.getKey() + " : " + entry.getValue());
-            result += result +entry.getKey() + " : " + entry.getValue();
+            result += entry.getKey() + " : " + entry.getValue() +"%n";
         }
         return result;
     }
@@ -84,28 +83,34 @@ public class Affaire {
         this.caracteriquesAffaire.add(caracteristique);
     }
 
-    public void afficherCaracteristiquesAffaire() {
+    public String retournerCaracteristiquesAffaire() {
+
+        String result ="";
         for (int i = 0; i < this.caracteriquesAffaire.size(); i++) {
 
             String listElement = this.caracteriquesAffaire.get(i);
             int listIndex = this.caracteriquesAffaire.indexOf(this.caracteriquesAffaire.get(i));
-            System.out.println(listIndex + " - " + listElement);
+            result +=listIndex + " - " + listElement +"%n";
         }
-
+        return result;
     }
 
     public void addProgrammesAffaire(Programme programme) {
         this.listProgrammesAffaire.add(programme);
     }
 
-    public void afficherListProgrammesAffaire() {
+    public String retournerListProgrammesAffaire() {
+        String result = "";
         for (int i = 0; i < this.listProgrammesAffaire.size(); i++) {
 
             Programme programme = this.listProgrammesAffaire.get(i);
             int listIndex = this.listProgrammesAffaire.indexOf(this.listProgrammesAffaire.get(i));
-            System.out.println(listIndex + " - " + programme.getTitreLegalProgramme());
-        }
 
+            result += "Numero de programme : " + this.listProgrammesAffaire.get(i).getNumeroProgramme() +"%n"
+                    + "Titre legal programme : " + this.listProgrammesAffaire.get(i).getTitreLegalProgramme() +"%n"
+                    +"Titre traduit programme : " + this.listProgrammesAffaire.get(i).getTitreTraduitProgramme() +"%n";
+        }
+ return result;
     }
 
 }
