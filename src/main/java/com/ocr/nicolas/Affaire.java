@@ -111,6 +111,7 @@ public class Affaire {
                     +"Titre traduit programme : " + this.listProgrammesAffaire.get(i).getTitreTraduitProgramme() +"%n";
         }
  return result;
+        //test
     }
 
 }
