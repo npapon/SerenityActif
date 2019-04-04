@@ -68,7 +68,23 @@ resp.setContentType("text/html");
                         +"<br/>"
                         +"<label for=\"password\">Mot de passe : </label><input type=\"password\" name=\"password\" " +
                         "id=\"password\" placeholder=\"code secret\"/>"
-                +"</form>";
+                        +"<br/>"
+                        +"<p>Quel est votre affaire préférée</p>";
+
+
+                         for(int i =0;i<affaires.size();i++)
+                             {form+= "<input type=\"radio\" name=\"affaires\" value=\"affaire" +i+"\" id=\"affaire"+i+"\">" +
+                                     "<label for=\"affaire"+i+"\">" +
+                                     affaires.get(i).getTitreLegalAffaire()
+                                     + "</label>";}
+                    /*
+                        +"<input type=\"radio\" name=\"affaires\" value=\"affaire1\" id=\"affaire1\">" +
+                        "<label for=\"affaire1\">" +
+                        affaires.get(1).getTitreLegalAffaire()
+                        + "</label>"
+                        +"<input type=\"radio\" name=\"affaires\" value=\"affaire2\" id=\"affaire2\">" +
+                        "<label for=\"affaire2\">Braquo</label>"*/
+        form+= "</form>";
 
         resp.getWriter().println("<b>PAGE DE CREATION DE COMPTE</b>"
                 +"<br/><br/>"
