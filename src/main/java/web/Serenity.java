@@ -81,17 +81,11 @@ residentEvil.addProgrammesAffaire(residentEvilProgramme);
 
 
                          for(int i =0;i<affaires.size();i++)
-                             {form+= "<input type=\"radio\" name=\"affaires\" value=\"affaire" +i+"\" id=\"affaire"+i+"\">" +
+                             {form+= "<input type=\"radio\" name=\"affaires\" value=\"" +i+"\" id=\"affaire"+i+"\">" +
                                      "<label for=\"affaire"+i+"\">" +
                                      affaires.get(i).getTitreLegalAffaire()
                                      + "</label>";}
-                    /*
-                        +"<input type=\"radio\" name=\"affaires\" value=\"affaire1\" id=\"affaire1\">" +
-                        "<label for=\"affaire1\">" +
-                        affaires.get(1).getTitreLegalAffaire()
-                        + "</label>"
-                        +"<input type=\"radio\" name=\"affaires\" value=\"affaire2\" id=\"affaire2\">" +
-                        "<label for=\"affaire2\">Braquo</label>"*/
+
         form+= "<br/><br/><input type=\"submit\" name=\"compteCreation\" value=\"Creer\"></form>";
 
         resp.getWriter().println("<b>PAGE DE CREATION DE COMPTE</b>"
@@ -104,12 +98,25 @@ residentEvil.addProgrammesAffaire(residentEvilProgramme);
 
     private void afficherResultatFormulaire(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        resp.getWriter().println("COMPTE CREEE");
-        Map<String,String>  mapChampsFormulaire = this.mapChampsFormulaire(req.getQueryString());
-        CreationCompte creationCompte = new CreationCompte(mapChampsFormulaire.get("login"),
-                mapChampsFormulaire.get("password"),affaires.get(affaires.indexOf(mapChampsFormulaire.get("affaires"))),
+
+       Map<String,String>  mapChampsFormulaire = this.mapChampsFormulaire(req.getQueryString());
+    CreationCompte creationCompte = new CreationCompte(mapChampsFormulaire.get("login"),
+               mapChampsFormulaire.get("password"),affaires.get(Integer.parseInt(mapChampsFormulaire.get("affaires"))),
                 mapChampsFormulaire.get("prenom"),mapChampsFormulaire.get("nom"));
-        //resp.getWriter().println(creationCompte.getAffaireFavorite().getTitreLegalAffaire());
+    String compteCree ="<p>"
+            + "COMPTE CREER AVEC SUCCES"
+            +"<br/>"
+            +"login : " + creationCompte.getLogin()
+            +"<br/>"
+            +"mot de passe : " + creationCompte.getMotDePasse()
+            +"<br/>"
+            +"prenom : " + creationCompte.getPrenom()
+            +"<br/>"
+            +"nom : " + creationCompte.getNom()
+             +"<br/>"
+                +"affaire préférée : " + creationCompte.getAffaireFavorite().getTitreLegalAffaire();
+
+        resp.getWriter().println(compteCree);
 
     }
 
