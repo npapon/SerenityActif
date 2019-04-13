@@ -81,7 +81,7 @@ residentEvil.addProgrammesAffaire(residentEvilProgramme);
 
 
                          for(int i =0;i<affaires.size();i++)
-                             {form+= "<input type=\"radio\" name=\"affaires\" value=\"" +i+"\" id=\"affaire"+i+"\">" +
+                             {form+= "<input type=\"radio\" name=\"affaires\" value=\"" +i+"\" id=\"affaire"+i+"\" required>" +
                                      "<label for=\"affaire"+i+"\">" +
                                      affaires.get(i).getTitreLegalAffaire()
                                      + "</label>";}

@@ -6,9 +6,17 @@
         <servlet-name>Serenity</servlet-name>
         <servlet-class>web.Serenity</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Serenity2</servlet-name>
+        <servlet-class>web.Serenity2</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>Serenity</servlet-name>
         <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Serenity2</servlet-name>
+        <url-pattern>/home2</url-pattern>
     </servlet-mapping>
 </web-app>
