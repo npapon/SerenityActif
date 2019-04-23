@@ -36,6 +36,8 @@ public class Main {
         affaires.add(residentEvil);
 
         System.out.println(affaires.get(1).getTitreLegalAffaire());
+        String nicolas = "lol";
+        nicolas.length();
 
 
     }

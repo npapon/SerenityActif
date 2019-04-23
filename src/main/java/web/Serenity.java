@@ -88,10 +88,30 @@ residentEvil.addProgrammesAffaire(residentEvilProgramme);
 
         form+= "<br/><br/><input type=\"submit\" name=\"compteCreation\" value=\"Creer\"></form>";
 
+                         String javaScript;
+                String radioButonFocus ="";
+        for(int i =0;i<affaires.size();i++)
+        {radioButonFocus +=  "var affaire"+i+ "=document.getElementById('affaire"+i+"');"+
+                "affaire"+i+".addEventListener('click',function(e){info.innerHTML= 'vous êtes sur l élément ' + e.target.id;});";}
+
+                         javaScript ="<script>" +"var info = document.getElementById('info');"+
+                                 "var nom = document.getElementById('nom');"+
+                                 "nom.addEventListener('click',function(e){info.innerHTML= 'vous êtes sur l élément ' + e.target.id;});"+
+                                 "var prenom = document.getElementById('prenom');"+
+                                 "prenom.addEventListener('click',function(e){info.innerHTML= 'vous êtes sur l élément ' + e.target.id;});"+
+                                 "var login = document.getElementById('login');"+
+                                 "login.addEventListener('click',function(e){info.innerHTML= 'vous êtes sur l élément ' + e.target.id;});"+
+                                 "var password = document.getElementById('password');"+
+                                 "password.addEventListener('click',function(e){info.innerHTML= 'vous êtes sur l élément ' + e.target.id;});"+
+                                  radioButonFocus+
+                                 "</script>";
+
         resp.getWriter().println("<b>PAGE DE CREATION DE COMPTE</b>"
                 +"<br/><br/>"
+                +"<p id=\"info\"><p>"
         + "CREER VOTRE COMPTE EN REMPLISSANT LE FORMULAIRE"
                 + form
+                + javaScript
         );
 
     }
