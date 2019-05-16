@@ -106,7 +106,7 @@ residentEvil.addProgrammesAffaire(residentEvilProgramme);
                                   radioButonFocus+
                                  "</script>";
 
-        resp.getWriter().println("<b>PAGE DE CREATION DE COMPTE</b>"
+        resp.getWriter().println("<b style='color:red;'>PAGE DE CREATION DE COMPTE</b>"
                 +"<br/><br/>"
                 +"<p id=\"info\"><p>"
         + "CREER VOTRE COMPTE EN REMPLISSANT LE FORMULAIRE"
